@@ -40,8 +40,15 @@ class Incident(GenericObject):
         string = string.replace('----\r\nThis report was originally submitted at FixMyStreet.ie. You can find it at this alternate address:', '')
         string = string.replace('-- posted via fixyourstreet.ie mobile web', '')
         string = string.replace('-- posted via fixyourstreet.ie', '')
+        string = string.replace('-- received via Twitter (Contact us at @fixyourstreet or using the hashtag #fysie). Catch up with us on http://twitter.com/fixyourstreet', '')
         string = string.replace('#Waste/IllegalDumping', '')
+        string = string.replace('#Air/Odour', '')
+        string = string.replace('#Water', '')
+        string = string.replace('#DrinkingWater', '')
+        string = string.replace('#PublicLighting', '')
+        string = string.replace('#Noise', '')
         string = string.replace('----', '')
+        string = string.replace('\r\n.', '.')
 
         string = re.sub(r'https:\/\/fixmystreet\.ie\/report\/\d+', '', string)
 
