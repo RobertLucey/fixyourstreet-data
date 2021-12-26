@@ -24,7 +24,15 @@ Before working with any data you must first pull. Do this by running `update_fix
             'locationid': 1,
             'locationlatitude': 52.00000,
             'locationlongitude': -7.00000,
-            'locationname': 'Near the building entrance'
+            'locationname': 'Near the building entrance',
+            'geo': {
+                'lat': '52.15139',
+                'lon': '-6.98611',
+                'name': 'Dunmore East',
+                'admin1': 'Munster',
+                'admin2': 'Waterford',
+                'cc': 'IE'
+            }
         }
     },
     'media': {

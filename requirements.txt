@@ -1,2 +1,4 @@
 requests
 pandas
+reverse_geocoder
+cached_property

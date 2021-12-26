@@ -5,7 +5,9 @@ from setuptools import (
 
 INSTALL_REQUIRES = (
     'requests',
-    'pandas'
+    'pandas',
+    'reverse_geocoder',
+    'cached_property'
 )
 
 setup(
