@@ -16,6 +16,19 @@ class Reports(GenericObjects):
         kwargs.setdefault('child_class', Report)
         super().__init__(*args, **kwargs)
 
+    def filter(self, **kwargs):
+        filtered = []
+        for report in self:
+            valid = True
+            for attr, val in kwargs.items():
+                if getattr(report, attr) != val:
+                    valid = False
+                    break
+            if valid:
+                filtered.append(report)
+
+        return filtered
+
 
 class Report(GenericObject):
 
@@ -25,7 +38,7 @@ class Report(GenericObject):
         if isinstance(kwargs['media'], list) or kwargs['media'] is None:
             self.media = None
         else:
-            if kwargs['media']['id']is None:
+            if kwargs['media']['id'] is None:
                 self.media = None
             else:
                 self.media = Media(**kwargs['media'])
