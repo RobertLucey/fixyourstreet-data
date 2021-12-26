@@ -25,6 +25,11 @@ class Reports(GenericObjects):
             )
         ])
 
+    def serialize(self, minimal=True):
+        return [
+            r.serialize(minimal=minimal) for r in self._data
+        ]
+
 
 class Report(GenericObject):
 
@@ -54,9 +59,9 @@ class Report(GenericObject):
     def parse(data):
         return Report(**data)
 
-    def serialize(self):
+    def serialize(self, minimal=True):
         return {
-            'incident': self.incident.serialize(),
+            'incident': self.incident.serialize(minimal=minimal),
             'media': self.media.serialize() if self.media is not None else None,
             'categories': self.categories.serialize()
         }

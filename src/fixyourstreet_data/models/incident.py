@@ -29,7 +29,7 @@ class Incident(GenericObject):
         else:
             self.location = Location(**kwargs)
 
-    def serialize(self):
+    def serialize(self, minimal=True):
         return {
             'incidentid': self.id,
             'incidentactive': self.active,
@@ -38,5 +38,5 @@ class Incident(GenericObject):
             'incidentmode': self.mode,
             'incidenttitle': self.title,
             'incidentverified': self.verified,
-            'incidentlocation': self.location.serialize()
+            'incidentlocation': self.location.serialize(minimal=minimal)
         }

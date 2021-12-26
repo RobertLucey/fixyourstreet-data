@@ -47,7 +47,7 @@ def get_reports():
 def save_reports(reports):
     os.makedirs(BASE_DIR, exist_ok=True)
     if isinstance(reports, Reports):
-        data = json_normalize(reports.serialize(), max_level=10)
+        data = json_normalize(reports.serialize(minimal=True), max_level=10)
         data.to_csv(DATA_FILE_PATH)
     elif isinstance(reports, list):
         raise NotImplementedError()

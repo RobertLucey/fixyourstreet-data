@@ -10,7 +10,7 @@ Before working with any data you must first pull. Do this by running `update_fix
 ```python
 >>> from fixyourstreet_data.utils import get_reports
 >>> reports = get_reports()
->>> reports[0].serialize()
+>>> reports[0].serialize(minimal=False)
 {
     'incident': {
         'incidentid': 1,

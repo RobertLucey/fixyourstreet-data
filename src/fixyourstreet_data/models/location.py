@@ -16,11 +16,15 @@ class Location():
             (self.latitude, self.longitude)
         )[0])
 
-    def serialize(self):
-        return {
+    def serialize(self, minimal=True):
+        data = {
             'locationid': self.id,
             'locationlatitude': self.latitude,
             'locationlongitude': self.longitude,
             'locationname': self.name,
-            'geo': self.reverse_geo
         }
+
+        if not minimal:
+            data['geo'] = self.reverse_geo
+
+        return data
