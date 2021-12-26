@@ -19,6 +19,7 @@ setup(
     install_requires=INSTALL_REQUIRES,
     entry_points={
         'console_scripts': [
+            'update_fixyourstreet_data = fixyourstreet_data.bin.update_data:main',
         ]
     }
 )
