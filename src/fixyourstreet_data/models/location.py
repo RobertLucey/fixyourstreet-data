@@ -13,7 +13,7 @@ class Location():
     @cached_property
     def reverse_geo(self):
         return dict(reverse_geocoder.search(
-            (self.lat, self.lng)
+            (self.latitude, self.longitude)
         )[0])
 
     def serialize(self):
