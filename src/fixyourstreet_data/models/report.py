@@ -59,6 +59,10 @@ class Report(GenericObject):
     def parse(data):
         return Report(**data)
 
+    @property
+    def timestamp(self):
+        return self.incident.timestamp
+
     def serialize(self, minimal=True):
         return {
             'incident': self.incident.serialize(minimal=minimal),

@@ -1,3 +1,4 @@
+import datetime
 import re
 
 from fixyourstreet_data.models.location import Location
@@ -30,6 +31,10 @@ class Incident(GenericObject):
             self.location = Location(**kwargs['incidentlocation'])
         else:
             self.location = Location(**kwargs)
+
+    @property
+    def timestamp(self):
+        return datetime.datetime.strptime(self.date, '%Y-%m-%d %H:%M:%S')
 
     @property
     def clean_description(self):
