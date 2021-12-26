@@ -17,17 +17,13 @@ class Reports(GenericObjects):
         super().__init__(*args, **kwargs)
 
     def filter(self, **kwargs):
-        filtered = []
-        for report in self:
-            valid = True
-            for attr, val in kwargs.items():
-                if getattr(report, attr) != val:
-                    valid = False
-                    break
-            if valid:
-                filtered.append(report)
-
-        return filtered
+        return Reports(data=[
+            d for d in self if all(
+                [
+                    getattr(d, attr) == kwargs[attr] for attr in kwargs.keys()
+                ]
+            )
+        ])
 
 
 class Report(GenericObject):
