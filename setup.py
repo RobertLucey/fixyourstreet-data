@@ -13,7 +13,7 @@ setup(
     version='0.0.1',
     python_requires='>=3.6',
     author='Robert Lucey',
-    url='https://github.com/RobertLucey/fixyourstreet',
+    url='https://github.com/RobertLucey/fixyourstreet-data',
     packages=find_packages('src'),
     package_dir={'': 'src'},
     install_requires=INSTALL_REQUIRES,
