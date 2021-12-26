@@ -51,6 +51,9 @@ class Report(GenericObject):
         else:
             self.categories = Categories(data=kwargs['categories'])
 
+    def is_category(self, category):
+        return [c for c in self.categories if c.label == category] != []
+
     @staticmethod
     def parse(data):
         return Report(**data)
