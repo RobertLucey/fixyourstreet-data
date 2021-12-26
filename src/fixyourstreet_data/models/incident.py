@@ -1,3 +1,5 @@
+import re
+
 from fixyourstreet_data.models.location import Location
 from fixyourstreet_data.models.generic import (
     GenericObject,
@@ -29,8 +31,25 @@ class Incident(GenericObject):
         else:
             self.location = Location(**kwargs)
 
+    @property
+    def clean_description(self):
+        string = self.description.replace('-- posted via the fixyourstreet.ie public api', '')
+        string = string.replace('\r\n----\r\n\r\n\r\n -- posted via the fixyourstreet.ie public api', '')
+        string = string.replace('\r\n\r\n. Submitted via EPA/NIECE Smartphone App.', '')
+        string = string.replace('Submitted via EPA/NIECE Smartphone App.', '')
+        string = string.replace('----\r\nThis report was originally submitted at FixMyStreet.ie. You can find it at this alternate address:', '')
+        string = string.replace('-- posted via fixyourstreet.ie mobile web', '')
+        string = string.replace('-- posted via fixyourstreet.ie', '')
+        string = string.replace('#Waste/IllegalDumping', '')
+        string = string.replace('----', '')
+
+        string = re.sub(r'https:\/\/fixmystreet\.ie\/report\/\d+', '', string)
+
+        return string.strip()
+
+
     def serialize(self, minimal=True):
-        return {
+        data = {
             'incidentid': self.id,
             'incidentactive': self.active,
             'incidentdate': self.date,
@@ -40,3 +59,8 @@ class Incident(GenericObject):
             'incidentverified': self.verified,
             'incidentlocation': self.location.serialize(minimal=minimal)
         }
+
+        if not minimal:
+            data['clean_description'] = self.clean_description
+
+        return data

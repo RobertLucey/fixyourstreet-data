@@ -17,6 +17,7 @@ Before working with any data you must first pull. Do this by running `update_fix
         'incidentactive': 1,
         'incidentdate': '2021-12-25 01:00:00',
         'incidentdescription': 'Household rubbish dumped Submitted via EPA/NIECE Smartphone App. #Waste/IllegalDumping -- posted via the fixyourstreet.ie public api',
+        'clean_description': 'Household rubbish dumped',
         'incidentmode': 1,
         'incidenttitle': 'Waste/Illegal Dumping',
         'incidentverified': 0,
