@@ -54,6 +54,8 @@ class Incident(GenericObject):
         string = string.replace('#Noise', '')
         string = string.replace('----', '')
         string = string.replace('\r\n.', '.')
+        string = string.replace('\r\n\r\n', '\r\n')
+        string = string.replace('Ã¢Â€Â™', '\'')
 
         string = re.sub(r'https:\/\/fixmystreet\.ie\/report\/\d+', '', string)
         string = re.sub(r' +', ' ', string)
