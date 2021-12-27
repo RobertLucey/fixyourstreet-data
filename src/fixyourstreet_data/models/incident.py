@@ -56,9 +56,9 @@ class Incident(GenericObject):
         string = string.replace('\r\n.', '.')
 
         string = re.sub(r'https:\/\/fixmystreet\.ie\/report\/\d+', '', string)
+        string = re.sub(r' +', ' ', string)
 
         return string.strip()
-
 
     def serialize(self, minimal=True):
         data = {
