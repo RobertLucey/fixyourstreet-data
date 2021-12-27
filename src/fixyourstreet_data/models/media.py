@@ -1,3 +1,5 @@
+# TODO: should probably do some stuff to download media
+
 class Media():
 
     def __init__(self, *args, **kwargs):
