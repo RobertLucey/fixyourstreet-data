@@ -4,7 +4,7 @@ Tools for working with fixyourstreet.ie data
 
 ## Usage
 
-Before working with any data you must first pull. Do this by running `update_fixyourstreet_data`. Do this every now and then to keep the data fresh,
+Before working with any data you must first pull. Do this by running `update_fixyourstreet_data`. Do this every now and then to keep the data fresh.
 
 
 ```python
